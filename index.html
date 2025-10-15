@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CJPD Kakamega Diocese</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <img src="images/cjpdlogo.jpg" alt="CJPD Logo" class="logo-img">
+      <h1 class="logo">CJPD Kakamega Diocese</h1>
+
+      <nav aria-label="Main navigation">
+        <ul id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="educationfund.html">Education Fund</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+        <img src="images/cjpdhero.jpg">
+      <h2>Promoting Justice, Peace & Development in Kakamega Diocese</h2>
+      <p>Empowering communities through faith, dialogue, and sustainable action.</p>
+
+      <!-- Countdown -->
+       <h2>UPCOMING and ONGOING Events</h2>
+      <div class="countdown" id="countdown">
+        <div><span id="days">0</span>Days</div>
+        <div><span id="hours">0</span>Hours</div>
+        <div><span id="minutes">0</span>Minutes</div>
+        <div><span id="seconds">0</span>Seconds</div>
+      </div>
+
+      <a href="about.html" class="btn">Learn More</a>
+      <p class="contact">Call / WhatsApp: +254 795 435045</p>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="about-preview">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>The Catholic Justice and Peace Department (CJPD) of Kakamega Diocese is committed to promoting human dignity, justice, and peace in society. We empower communities through advocacy, dialogue, and transformative programs guided by Gospel values.</p>
+      <a href="about.html" class="btn">Read More</a>
+    </div>
+  </section>
+
+  <!-- Projects Overview -->
+  <section class="services-preview">
+    <div class="container">
+      <h2>Our Core Programs</h2>
+      <div class="services-cards">
+        <div class="card">
+          <img src="images/peace.jpg" alt="Peace & Reconciliation">
+          <h3>Peace & Reconciliation</h3>
+          <p>Facilitating dialogues and promoting peaceful coexistence within communities.</p>
+        </div>
+        <div class="card">
+          <img src="images/women.jpg" alt="Women Empowerment">
+          <h3>Women Empowerment</h3>
+          <p>Through the Wezesha Mjane program, widows and vulnerable women are supported to rebuild livelihoods.</p>
+        </div>
+        <div class="card">
+          <img src="images/environment.jpg" alt="Environment">
+          <h3>Environmental Care</h3>
+          <p>Encouraging care for creation through tree planting and environmental stewardship.</p>
+        </div>
+      </div>
+      <a href="projects.html" class="btn">See All Projects</a>
+    </div>
+  </section>
+
+  <!-- Education Fund Preview -->
+  <section class="education-preview">
+    <div class="container">
+      <h2>Education Fund</h2>
+      <p>Since 2019, CJPD Kakamega has supported vulnerable students to access quality education. The program continues to uplift bright but needy learners across the diocese — nurturing future leaders rooted in faith and service.</p>
+      <a href="education.html" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Blog Preview -->
+  <section class="blog-preview">
+    <div class="container">
+      <h2>Latest News & Events</h2>
+      <div class="blog-cards">
+        <div class="card">
+          <img src="images/event1.jpg" alt="Peace Week">
+          <h3>Peace Week Celebration</h3>
+          <p>Communities gathered across the diocese to mark Peace Week through prayers and unity activities.</p>
+        </div>
+        <div class="card">
+          <img src="images/tree.jpg" alt="Tree Planting">
+          <h3>Tree Planting Initiative</h3>
+          <p>Youth groups planted over 2,000 trees to promote environmental conservation.</p>
+        </div>
+      </div>
+      <a href="blog.html" class="btn">Read More</a>
+    </div>
+  </section>
+
+  <!-- Gallery Preview -->
+  <section class="gallery-preview">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="gallery-images">
+        <img src="images/gallery1.jpg" alt="Community Workshop">
+        <img src="images/gallery2.jpg" alt="Students">
+        <img src="images/gallery3.jpg" alt="Training Session">
+        <img src="images/gallery4.jpg" alt="Tree Planting">
+      </div>
+      <a href="gallery.html" class="btn">View More</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 CJPD Kakamega Diocese. All rights reserved.</p>
+      <p>Pnone: +254 795 435045 | Location: Kakamega, Kenya</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('#nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+
+    // Countdown timer
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    function updateCountdown() {
+      const targetDate = new Date('December 20, 2025 00:00:00').getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = '<div>Event Day!</div>';
+        clearInterval(timer);
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      daysEl.textContent = d;
+      hoursEl.textContent = h;
+      minutesEl.textContent = m;
+      secondsEl.textContent = s;
+    }
+
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <!-- Floating Call Button -->
+  <a href="tel:+254795435045" class="call-float" aria-label="Call CJPD Kakamega Diocese">
+    <img src="images/callicon.jpg" alt="Call Us">
+  </a>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254795435045" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="images/whatsapp.jpg" alt="WhatsApp">
+  </a>
+
+</body>
+</html>
+

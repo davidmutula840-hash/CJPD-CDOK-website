@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | CJPD Kakamega Diocese</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #ffffff;
+      color: #333;
+    }
+
+    header {
+      background-color: #6CB33F;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #6CB33F;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        text-align: right;
+        padding: 1rem;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    .contact-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .contact-section h2 {
+      color: #C1272D;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-section p {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 40px;
+      color: #444;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media(max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-info h3 {
+      color: #6CB33F;
+      margin-bottom: 10px;
+    }
+
+    .contact-info p {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .contact-form {
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: #C1272D;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .contact-form button:hover {
+      background: #a61f25;
+    }
+
+    .map-container {
+      margin-top: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 400px;
+    }
+
+    footer {
+      background-color: #C1272D;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/cjpdlogo.jpg" alt="CJPD Logo" />
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="educationfund.html">Education Fund</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html" class="active">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <h2>Contact CJPD Kakamega Diocese</h2>
+    <p>Reach out to us for inquiries, collaboration, or support. We are here to assist and listen.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Contact Details</h3>
+        <p><strong>Address:</strong> Bishop's House, P.O. Box 150, 50100 Kakamega, Kenya</p>
+        <p><strong>Phone:</strong> +254 795 435045</p>
+        <p><strong>Email:</strong> <a href="mailto:info@kakamegadiocese.or.ke">info@kakamegadiocese.or.ke</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/254795435045" target="_blank">Chat on WhatsApp</a></p>
+      </div>
+
+      <div class="contact-form">
+        <form action="https://formspree.io/f/mjkajgnw" method="POST">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Your email" required />
+
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Subject of your message" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <!-- Exact CJPD Location -->
+      <iframe
+        src="https://maps.google.com/maps?q=-0.2833,34.7500&z=17&hl=en&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 CJPD Kakamega Diocese. All rights reserved.
+  </footer>
+
+  <script>
+    // Hamburger menu
+    const toggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    toggle.addEventListener("click", () => navLinks.classList.toggle("active"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | CJPD Kakamega Diocese</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #222;
+      margin: 0;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #006400, #FFD700, #FF0000, #1E90FF);
+      color: #fff;
+      padding: 15px 0;
+    }
+
+    .header-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 65px;
+      border-radius: 8px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #FFD700;
+    }
+
+    nav ul li a.active {
+      border-bottom: 2px solid yellow;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 10px;
+        background: #006400;
+        width: 200px;
+        border-radius: 10px;
+        text-align: center;
+        padding: 15px 0;
+        z-index: 100;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 350px;
+      background: url('images/cjpdhero.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 2.5rem;
+    }
+
+    /* Gallery Section */
+    .gallery {
+      padding: 60px 0;
+    }
+
+    .gallery h2 {
+      text-align: center;
+      color: #006400;
+      margin-bottom: 10px;
+    }
+
+    .gallery p {
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 90%;
+      margin: auto;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 3px solid #FFD700;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 25px 0;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <img src="images/cjpdlogo.jpg" alt="CJPD Logo" class="logo-img" />
+
+      <nav>
+        <ul id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="educationfund.html">Education Fund</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Gallery Highlights</h1>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <h2>Moments of Impact</h2>
+    <p>Explore highlights from our community activities, peace initiatives, and diocesan programs.</p>
+
+    <div class="gallery-grid">
+      <img src="images/gallery1.jpg" alt="Community Peace Workshop" />
+      <img src="images/gallery2.jpg" alt="Tree Planting Initiative" />
+      <img src="images/gallery3.jpg" alt="Youth Empowerment Program" />
+      <img src="images/gallery4.jpg" alt="Lenten Campaign Event" />
+      <img src="images/gallery5.jpg" alt="Environmental Awareness Day" />
+      <img src="images/gallery6.jpg" alt="Parish Outreach Program" />
+      <img src="images/gallery7.jpg" alt="Women Empowerment Workshop" />
+      <img src="images/gallery8.jpg" alt="Education Fund Beneficiaries" />
+      <img src="images/gallery9.jpg" alt="Leadership Forum" />
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 CJPD Kakamega Diocese. All rights reserved.</p>
+      <p>Phone: +254 795 435045</p>
+    </div>
+  </footer>
+
+  <!-- JS for Hamburger -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

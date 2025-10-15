@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CJPD Blog | Diocese of Kakamega</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    header {
+      background-color: #6CB33F;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #6CB33F;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        text-align: right;
+        padding: 1rem;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    .blog-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .blog-section h2 {
+      color: #C1272D;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .blog-intro {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 40px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .blog-card {
+      background: #f9f9f9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 20px;
+    }
+
+    .blog-content h3 {
+      color: #6CB33F;
+      margin-bottom: 10px;
+    }
+
+    .blog-content p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .read-more {
+      background: #C1272D;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .read-more:hover {
+      background: #a61f25;
+    }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.7);
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      position: relative;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .modal-content h3 {
+      color: #6CB33F;
+    }
+
+    .modal-content p {
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .close {
+      color: #C1272D;
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #a61f25;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    footer {
+      background-color: #C1272D;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/cjpdlogo.jpg" alt="CJPD Logo" />
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="educationfund.html">Education Fund</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="blog-section">
+    <h2>Latest Reflections & News</h2>
+    <p class="blog-intro">
+      Stay updated with reflections, justice efforts, and development stories from the Catholic Justice and Peace Department (CJPD) Diocese of Kakamega.
+    </p>
+
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img src="images/bishop.jpg" alt="Bishop Speech" />
+        <div class="blog-content">
+          <h3>Bishop’s Reflection: Hope in Our Community</h3>
+          <p>Bishop’s message on faith, justice, and peace...</p>
+          <button class="read-more" data-modal="modal1">Read More</button>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="images/boniface.jpg" alt="Coordinator Message" />
+        <div class="blog-content">
+          <h3>Coordinator’s Insight: Youth in Action</h3>
+          <p>Boniface shares about youth empowerment and mentorship...</p>
+          <button class="read-more" data-modal="modal2">Read More</button>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="images/educationfund.jpg" alt="Education Program" />
+        <div class="blog-content">
+          <h3>Education Fund Update: Empowering Tomorrow</h3>
+          <p>A look into how the Education Fund supports students...</p>
+          <button class="read-more" data-modal="modal3">Read More</button>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="images/lenten.jpg" alt="Lenten Campaign" />
+        <div class="blog-content">
+          <h3>Lenten Campaign 2025: Building a Just Society</h3>
+          <p>This year's campaign theme and call to action...</p>
+          <button class="read-more" data-modal="modal4">Read More</button>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="images/corruption.jpg" alt="Anti-Corruption" />
+        <div class="blog-content">
+          <h3>Fighting Against Corruption: A Call to Moral Integrity</h3>
+          <p>Upholding transparency and truth in all sectors...</p>
+          <button class="read-more" data-modal="modal5">Read More</button>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="images/childabuse.jpg" alt="Child Protection" />
+        <div class="blog-content">
+          <h3>Protecting Our Children: Ending Abuse Through Awareness</h3>
+          <p>Raising voices to defend children’s rights...</p>
+          <button class="read-more" data-modal="modal6">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Bishop’s Reflection: Hope in Our Community</h3>
+      <p>“In our world filled with division and pain, the call to justice and peace is more urgent than ever. CJPD reminds us that our faith must be active — not just in words but in deeds that uplift the poor and defend the vulnerable.”</p>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Coordinator’s Insight: Youth in Action</h3>
+      <p>“The youth are vital changemakers. Our programs equip them with civic education, leadership skills, and moral formation to serve society faithfully.”</p>
+    </div>
+  </div>
+
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Education Fund Update</h3>
+      <p>The Education Fund supports students in need, ensuring equal access to education through community contributions and diocesan solidarity programs.</p>
+    </div>
+  </div>
+
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Lenten Campaign 2025</h3>
+      <p>The Lenten Campaign calls all Catholics to engage in practical acts of charity, justice, and reconciliation in their parishes and communities.</p>
+    </div>
+  </div>
+
+  <div id="modal5" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Fighting Against Corruption: A Call to Moral Integrity</h3>
+      <p>
+        Corruption undermines human dignity and erodes public trust. CJPD works to foster a culture of honesty, integrity, and accountability through civic education and advocacy.
+        Christians are encouraged to live by truth, reject bribery, and be role models of ethical leadership in society.
+      </p>
+    </div>
+  </div>
+
+  <div id="modal6" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Protecting Our Children: Ending Abuse Through Awareness</h3>
+      <p>
+        CJPD partners with parishes, schools, and social institutions to raise awareness on child safety and report abuse cases.
+        We believe every child deserves protection, love, and a safe environment to grow in faith and dignity.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 CJPD Diocese of Kakamega. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Hamburger menu
+    const toggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    toggle.addEventListener("click", () => navLinks.classList.toggle("active"));
+
+    // Modal functionality
+    const modals = document.querySelectorAll(".modal");
+    const btns = document.querySelectorAll(".read-more");
+    const closes = document.querySelectorAll(".close");
+
+    btns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const modalId = btn.getAttribute("data-modal");
+        document.getElementById(modalId).style.display = "block";
+      });
+    });
+
+    closes.forEach(close => {
+      close.addEventListener("click", () => {
+        close.parentElement.parentElement.style.display = "none";
+      });
+    });
+
+    window.addEventListener("click", (event) => {
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
