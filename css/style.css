@@ -75,40 +75,94 @@ nav ul li a.active {
 
 /* === HERO SECTION === */
 .hero {
- background: url('images/cjpdhero.jpg') no-repeat center center/cover;
-
+  background: url('images/cjpdhero.jpg') no-repeat center center/cover;
   color: #fff;
   text-align: center;
-  padding: 120px 20px;
+  padding: clamp(80px, 12vw, 160px) 20px; /* responsive padding */
   position: relative;
+  overflow: hidden; /* prevent horizontal scrolling */
+  width: 100%;
+  min-height: 70vh; /* ensures good vertical height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Dark overlay for text readability */
 .hero::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
 }
 
+/* Hero content container */
 .hero-content {
   position: relative;
   z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
+/* Headline styling */
 .hero h2 {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 5vw, 3rem); /* adjusts automatically */
   margin-bottom: 15px;
   color: #fff;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
+/* Paragraph styling */
 .hero p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   margin-bottom: 25px;
   color: #f1f1f1;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+/* Optional call-to-action button */
+.hero .btn {
+  display: inline-block;
+  background: #ff7a59;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.hero .btn:hover {
+  background: #ff633d;
+}
+
+/* === RESPONSIVE STYLING === */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    padding: 80px 15px;
+  }
+
+  .hero h2 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
 
 /* === COUNTDOWN === */
 .countdown {
@@ -131,7 +185,7 @@ nav ul li a.active {
 .btn {
   display: inline-block;
   padding: 10px 22px;
-  background: #6CB33F;
+  background: #69b33b;
   color: white;
   border-radius: 6px;
   text-decoration: none;
