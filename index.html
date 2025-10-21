@@ -46,9 +46,9 @@
        <p>Lenten Campaign and Tree Planting Activity</p> 
       <div class="countdown" id="countdown">
         <div><span id="days">0</span>Days</div>
-        <div><span id="hours">0</span>Hours</div>
-        <div><span id="minutes">0</span>Minutes</div>
-        <div><span id="seconds">0</span>Seconds</div>
+        <div><span id="hrs">0</span>Hrs</div>
+        <div><span id="mins">0</span>Mins</div>
+        <div><span id="sec">0</span>Sec</div>
       </div>
 
       <a href="about.html" class="btn">Learn More</a>
@@ -161,9 +161,9 @@
 
     // Countdown timer
     const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
+    const hoursEl = document.getElementById('hrs');
+    const minutesEl = document.getElementById('mins');
+    const secondsEl = document.getElementById('sec');
 
     function updateCountdown() {
       const targetDate = new Date('December 20, 2025 00:00:00').getTime();
